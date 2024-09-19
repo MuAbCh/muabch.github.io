@@ -1,7 +1,7 @@
 # Personal Portfolio ⚡️ 
 > Personal Portfolio of Muhammad Choudhary
 
-> This repo is a clone of [https://varadbhogayata.github.io](https://github.com/varadbhogayata/varadbhogayata.github.io)
+> This repo is a clone of [[https://varadbhogayata.github.io](https://github.com/varadbhogayata/varadbhogayata.github.io)](https://github.com/varadbhogayata/varadbhogayata.github.io)
 
 ![Alt text](assets/img/Activity1_Screenshot.png)
 
