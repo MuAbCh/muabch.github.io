@@ -1,7 +1,9 @@
 # Personal Portfolio ⚡️ 
-> A clean, beautiful, responsive portfolio template for Software Developers!
+> Personal Portfolio of Muhammad Choudhary
 
-> https://varadbhogayata.github.io
+> This repo is a clone of [https://github.com/varadbhogayata/varadbhogayata.github.io](https://github.com/varadbhogayata/varadbhogayata.github.io)
+
+![Alt text](assets/img/Activity1_Screenshot.png)
 
 ![GitHub stars](https://img.shields.io/github/stars/varadbhogayata/varadbhogayata.github.io) 
 ![GitHub forks](https://img.shields.io/github/forks/varadbhogayata/varadbhogayata.github.io)
