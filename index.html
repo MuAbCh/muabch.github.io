@@ -1137,6 +1137,18 @@
   <script>
     // Array of project objects
     const projects = [
+    {
+        title: "ReLive",
+        description: "A VR Photo Album",
+        tools: "HTML, CSS, Javascript, Python, Cohere, Firebase, Google Cardboard",
+        features: [
+          "Users can view thier photos as VR panoramas.",
+          "Just click the upload photo button and enjoy! ."
+        ],
+        image: "/assets/img/project-blog-logo.jpg",
+        githubLink: "https://github.com/MuAbCh/intellectify",
+        completionDate: "2024-01-10"
+      },
       {
         title: "Haptic Speak",
         description: "A Communication Device for the Deaf and Blind",
@@ -1149,7 +1161,8 @@
         ],
         image: "/assets/img/project-music-player.png",
         youtubeLink: "https://www.youtube.com/watch?v=DbbjJ8zAEVY",
-        githubLink: "https://github.com/MuAbCh/HapticSpeak"
+        githubLink: "https://github.com/MuAbCh/HapticSpeak",
+        completionDate: "2024-03-12"
       },
       {
         title: "Intellectify",
@@ -1161,10 +1174,12 @@
           "Get generated notes!"
         ],
         image: "/assets/img/project-quizup-logo-1.png",
-        githubLink: "https://github.com/MuAbCh/intellectify"
+        githubLink: "https://github.com/MuAbCh/intellectify",
+        completionDate: "2023-02-13"
       }
-      // Add more projects as needed
     ];
+
+    projects.sort((a, b) => new Date(b.completionDate) - new Date(a.completionDate));
 
     // Load the first project initially
     let currentProjectIndex = 0;
