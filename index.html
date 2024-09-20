@@ -409,6 +409,19 @@
       <div class="container">
         <div class="row">
 
+          <section id="recent-projects" class="section scrollspy">
+            <h3 class="page-title white-text teal">Recent Projects</h3>
+            <div class="container">
+              <div class="row" id="recent-projects-container">
+                <!-- Projects will be dynamically inserted here -->
+              </div>
+              <div class="row">
+                <button id="load-more" class="btn-large waves-effect waves-light blue-grey">Load More</button>
+              </div>
+            </div>
+          </section>
+
+
           <div class="col s12 m6 l4">
             <div class="card medium">
               <div class="card-image waves-effect waves-block waves-light">
@@ -1089,6 +1102,8 @@
 
   </main>
 
+
+
   <!-- typed.js -->
   <script src="assets/vendor/typed.js/typed.min.js"></script>
   <script type="text/javascript">
@@ -1117,6 +1132,98 @@
         closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
       })
     })
+  </script>
+
+  <script>
+    // Array of project objects
+    const projects = [
+      {
+        title: "Haptic Speak",
+        description: "A Communication Device for the Deaf and Blind",
+        tools: "HDK-8450 Dev Kit, Kotlin, Arduino, SQLite, AWS S3, Heroku",
+        features: [
+          "Register/login to the Android app (OAuth-based Google Sign-In)",
+          "Send Morse Code signals using a main button",
+          "Transmit signals to a vibrator",
+          "Works both ways!"
+        ],
+        image: "/assets/img/project-music-player.png",
+        youtubeLink: "https://www.youtube.com/watch?v=DbbjJ8zAEVY",
+        githubLink: "https://github.com/MuAbCh/HapticSpeak"
+      },
+      {
+        title: "Intellectify",
+        description: "An automated note taker for live or recorded lectures",
+        tools: "AWS Lambda, AWS Bedrock, HTML, JavaScript",
+        features: [
+          "Register/login to the web app (OAuth-based Google Sign-In)",
+          "Start recording or upload a recording",
+          "Get generated notes!"
+        ],
+        image: "/assets/img/project-quizup-logo-1.png",
+        githubLink: "https://github.com/MuAbCh/intellectify"
+      }
+      // Add more projects as needed
+    ];
+
+    // Load the first project initially
+    let currentProjectIndex = 0;
+    const projectsPerLoad = 1; // Load 1 project at a time
+
+    // Function to generate and insert project HTML
+    function loadProjects() {
+      const container = document.getElementById('recent-projects-container');
+
+      for (let i = currentProjectIndex; i < currentProjectIndex + projectsPerLoad; i++) {
+        if (i >= projects.length) break; // Stop if no more projects
+
+        const project = projects[i];
+
+        // Create HTML structure for a project card
+        const projectHTML = `
+      <div class="col s12 m6 l4">
+        <div class="card medium">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img alt="${project.title}" src="${project.image}" style="height: 100%; width: 100%" class="activator" />
+          </div>
+          <div class="card-content">
+            <span class="card-title activator teal-text hoverline">${project.title}<i class="mdi-navigation-more-vert right"></i></span>
+            <p>${project.description}</p>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text"><small>Accomplishments</small><i class="mdi-navigation-close right"></i></span>
+            <ul>
+              <li><b>Tools:</b> ${project.tools}</li>
+              ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+            </ul>
+            <div class="card-action">
+              <a aria-label="Visit YouTube" href="${project.youtubeLink || '#'}" target="_blank" class="btn-floating btn-large waves-effect waves-light blue-grey"><i class="fa fa-external-link"></i></a>
+              <a aria-label="Visit GitHub" href="${project.githubLink}" target="_blank" class="btn-floating btn-large waves-effect waves-light blue-grey"><i class="fa fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+        // Append the project card to the container
+        container.insertAdjacentHTML('beforeend', projectHTML);
+      }
+
+      // Update the current index for the next load
+      currentProjectIndex += projectsPerLoad;
+
+      // Hide the "Load More" button if all projects are loaded
+      if (currentProjectIndex >= projects.length) {
+        document.getElementById('load-more').style.display = 'none';
+      }
+    }
+
+    // Load the initial project when the page loads
+    document.addEventListener('DOMContentLoaded', loadProjects);
+
+    // Load more projects when the "Load More" button is clicked
+    document.getElementById('load-more').addEventListener('click', loadProjects);
+
   </script>
 </body>
 
